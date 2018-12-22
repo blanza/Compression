@@ -9,7 +9,8 @@ This repository contains code that broadly relate to looking at evolution of lif
     4) Original database to performe all calculations. 
     5) Under-registration of death counts - please look at https://cran.r-project.org/web/packages/DDM/index.html
     
-# Compression of mortality: the evolution in the variability in the age of death in Latin America
+# Information about paper
+
 Marcos Roberto Gonzaga,
 Universidade Federal do Rio Grande do Norte (UFRN)
 marcosrg@ccet.ufrn.br
