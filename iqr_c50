@@ -1,0 +1,144 @@
+# Codes used to generate estimates of IQR and C50
+
+## To estimate Interquartile Range - IQR ###
+dados<-read.table('dados_LA_IQR_novo.txt', sep='\t', header=T)
+fix(dados)
+names(dados)
+
+unique(dados$ctry)
+
+#501 502 503 504 505 506 507 508 509 510 511 512 513
+#Argentina, Brasil, Chile, Colombia, Costa Rica, Cuba, Dominican Republic, Mexico, Uruguai, Panama, Peru, Puerto Rico, Guatemala
+
+############################################
+###ler os dados novamente e rê lê a rotina##
+dados1<-dados[dados$ctry==513,]            ##muda o número e escolhe outro país
+
+##Separando os dados###
+dat.m<-subset(dados1, sex=='m')
+dat.f<-subset(dados1, sex=='f')
+
+##Retirando os missings dos dados###
+dat.m<-subset(dat.m, Sxstd!="NA")
+dat.f<-subset(dat.f,Sxstd!="NA")
+
+##Para não voltar abaixo na rotina##
+IQR_function(dat.f)
+
+#dat.m<-dat.m[,-1]
+#dat.f<-dat.f[,-1]
+
+##APENAS para o Chile 2012 e Colombia 1980
+
+#Chile
+#dat.m<-subset(dat.m, year!=2012)
+#dat.f<-subset(dat.f, year!=2012)
+#Colombia
+#dat.m<-subset(dat.m, year!=1980)
+#dat.f<-subset(dat.f, year!=1980)
+  
+names(dat.m)
+names(dat.f)
+
+###Função para estimar IQR para os anos###
+IQR_function<-function(x){
+tab<-data.frame(x)
+cod<-factor(x$year)
+tab<-split(tab,cod)
+for(i in seq(along = tab)){tab[[i]]$First_Q<-0.25}
+for(i in seq(along = tab)){tab[[i]]$Third_Q<-0.75}
+for(i in seq(along = tab)){
+tab[[i]]$FQ_idade_max<-which(sort(tab[[i]]$age, decreasing=T)==findInterval(tab[[i]]$First_Q, sort(tab[[i]]$Sxstd)))
+}
+for(i in seq(along = tab)){
+tab[[i]]$FQ_idade_min<-which(sort(tab[[i]]$age, decreasing=T)==findInterval(tab[[i]]$First_Q, sort(tab[[i]]$Sxstd)))-1
+}
+for(i in seq(along = tab)){
+tab[[i]]$FQ_lx_max<-sort(tab[[i]]$Sxstd)[sort(tab[[i]]$age, decreasing=T)== tab[[i]]$FQ_idade_max[1]]
+}
+for(i in seq(along = tab)){
+tab[[i]]$FQ_lx_min<-sort(tab[[i]]$Sxstd)[sort(tab[[i]]$age, decreasing=T)== tab[[i]]$FQ_idade_min[1]]
+}
+for(i in seq(along = tab)){
+tab[[i]]$l25<-(((tab[[i]]$FQ_idade_max-tab[[i]]$FQ_idade_min)*(tab[[i]]$First_Q-tab[[i]]$FQ_lx_min))+
+((tab[[i]]$FQ_lx_max-tab[[i]]$FQ_lx_min)*tab[[i]]$FQ_idade_min))/(tab[[i]]$FQ_lx_max-tab[[i]]$FQ_lx_min)
+}
+for(i in seq(along = tab)){
+tab[[i]]$TQ_idade_max<-which(sort(tab[[i]]$age, decreasing=T)==findInterval(tab[[i]]$Third_Q, sort(tab[[i]]$Sxstd)))
+}
+for(i in seq(along = tab)){
+tab[[i]]$TQ_idade_min<-which(sort(tab[[i]]$age, decreasing=T)==findInterval(tab[[i]]$Third_Q, sort(tab[[i]]$Sxstd)))-1
+}
+for(i in seq(along = tab)){
+tab[[i]]$TQ_lx_max<-sort(tab[[i]]$Sxstd)[sort(tab[[i]]$age, decreasing=T)== tab[[i]]$TQ_idade_max[1]]
+}
+for(i in seq(along = tab)){
+tab[[i]]$TQ_lx_min<-sort(tab[[i]]$Sxstd)[sort(tab[[i]]$age, decreasing=T)== tab[[i]]$TQ_idade_min[1]]
+}
+for(i in seq(along = tab)){
+tab[[i]]$l75<-(((tab[[i]]$TQ_idade_max-tab[[i]]$TQ_idade_min)*(tab[[i]]$Third_Q-tab[[i]]$TQ_lx_min))+
+((tab[[i]]$TQ_lx_max-tab[[i]]$TQ_lx_min)*tab[[i]]$TQ_idade_min))/(tab[[i]]$TQ_lx_max-tab[[i]]$TQ_lx_min)
+}
+for(i in seq(along = tab)){
+tab[[i]]$IQR<-tab[[i]]$l25-tab[[i]]$l75
+}
+tab<-unsplit(tab,cod)
+l25<-tapply(tab$l25,tab$year,mean)
+l75<-tapply(tab$l75,tab$year,mean)
+IQR<-tapply(tab$IQR,tab$year,mean)
+resultado<-cbind(l25,l75,IQR)
+results<-list(resultado=resultado)
+return(results)
+}
+
+IQR_function(dat.m)
+
+## To estimate C50###
+
+##Dados###
+dados<-read.table('dados_LA_C50_novo.txt', sep='\t', header=T)
+fix(dados)
+names(dados)
+
+unique(dados$ctry)
+
+#501 502 503 504 505 506 507 508 509 510 511 512 513
+#Argentina, Brasil, Chile, Colombia, Costa Rica, Cuba, Dominican Republic, Mexico, Uruguai, Panama, Peru, Puerto Rico, Guatemala
+
+############################################
+###ler os dados novamente e rê lê a rotina##
+dados1<-dados[dados$ctry==513,]            ##muda o número e escolhe outro país
+
+##Separando os dados###
+dat.m<-subset(dados1, sex=='m')
+dat.f<-subset(dados1, sex=='f')
+
+##Retirando os missings dos dados###
+dat.m<-subset(dat.m, dx!="NA")
+dat.f<-subset(dat.f,dx!="NA")
+
+##Funtion to estimate C50
+C50_function<-function(x){
+tab<-data.frame(x)
+cod<-factor(x$year)
+tab<-split(tab,cod)
+for(i in seq(along = tab)){tab[[i]]$n<-seq(1,nrow(tab[[i]]))}                                                                        ## n
+for(i in seq(along = tab)){tab[[i]]$age_modal<-subset(tab[[i]]$age,tab[[i]]$dx==max(tab[[i]]$dx))}                                   ## modal age
+for(i in seq(along = tab)){tab[[i]]$dx_modal<-sort(tab[[i]]$dx,decreasing=T)}                                                        ## obitos ordenados pela idade modal
+for(i in seq(along = tab)){tab[[i]]$dx_modal_cum<-cumsum(tab[[i]]$dx_modal)}                                                         ## acumulado a partir da idade modal
+for(i in seq(along = tab)){tab[[i]]$dx_modal_perc<-round(tab[[i]]$dx_modal_cum/sum(tab[[i]]$dx)*100,digits=2)}                       ## % dx acumulado
+for(i in seq(along = tab)){tab[[i]]$dx_c50<-tab[[i]][findInterval(sum(tab[[i]]$dx*.50),tab[[i]]$dx_modal_cum)+1,'dx_modal']}         ## find dx
+for(i in seq(along = tab)){tab[[i]]$dx_c50_cum<-tab[[i]][findInterval(sum(tab[[i]]$dx*.50),tab[[i]]$dx_modal_cum)+1,'dx_modal_cum']} ## find dx cumulative
+for(i in seq(along = tab)){tab[[i]]$n_c50<-tab[[i]][findInterval(sum(tab[[i]]$dx*.50),tab[[i]]$dx_modal_cum)+1,'n']}                 ## find n
+for(i in seq(along = tab)){
+tab[[i]]$C50<-tab[[i]]$n_c50 -((tab[[i]]$dx_c50_cum - sum(tab[[i]]$dx*.50))/tab[[i]]$dx_c50)
+}
+tab<-unsplit(tab,cod)
+Modal_age<-tapply(tab$age_modal,tab$year,mean)
+C50<-tapply(tab$C50,tab$year,mean)
+resultado<-cbind(Modal_age,C50)
+results<-list(resultado=resultado)
+return(results)
+}
+
+C50_function(dat.f)
