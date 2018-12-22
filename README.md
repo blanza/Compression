@@ -5,5 +5,7 @@ This repository contains code that broadly relate to looking at evolution of lif
 
     1) Stata code to estimate latin america mortality pattern
     2) Stata code to estimate mortality age profile for all countries in the study
-    3) R codes to produce all graphs presented in the paper. 
+    3) R codes to produce all graphs presented in the paper.
+    4) Original database to performe all calculations. 
+    5) Under-registration of death counts - please look at https://cran.r-project.org/web/packages/DDM/index.html
     
