@@ -1,0 +1,139 @@
+ctryname,ctry,year,sex,grau
+Argentina,501,1970,f,0.750
+Argentina,501,1980,f,0.750
+Argentina,501,1991,f,0.750
+Argentina,501,2001,f,0.810
+Argentina,501,2010,f,0.920
+Argentina,501,1970,m,0.820
+Argentina,501,1980,m,0.830
+Argentina,501,1991,m,0.840
+Argentina,501,2001,m,0.890
+Argentina,501,2010,m,0.950
+Brasil,502,1980,f,0.763
+Brasil,502,1991,f,0.832
+Brasil,502,2000,f,0.900
+Brasil,502,2010,f,0.960
+Brasil,502,1980,m,0.843
+Brasil,502,1991,m,0.895
+Brasil,502,2000,m,0.946
+Brasil,502,2010,m,0.980
+Chile,503,1920,f,1.640
+Chile,503,1930,f,1.480
+Chile,503,1940,f,1.320
+Chile,503,1952,f,1.290
+Chile,503,1960,f,1.235
+Chile,503,1970,f,1.264
+Chile,503,1982,f,1.139
+Chile,503,1992,f,1.069
+Chile,503,2002,f,1.000
+Chile,503,2012,f,1.000
+Chile,503,1920,m,1.400
+Chile,503,1930,m,1.270
+Chile,503,1940,m,1.140
+Chile,503,1952,m,1.170
+Chile,503,1960,m,1.157
+Chile,503,1970,m,1.232
+Chile,503,1982,m,1.134
+Chile,503,1992,m,1.071
+Chile,503,2002,m,1.000
+Chile,503,2012,m,1.000
+Colombia,504,1964,f,1.230
+Colombia,504,1973,f,1.185
+Colombia,504,1985,f,1.140
+Colombia,504,1993,f,1.027
+Colombia,504,2005,f,1.115
+Colombia,504,1964,m,0.970
+Colombia,504,1973,m,1.031
+Colombia,504,1985,m,1.091
+Colombia,504,1993,m,1.114
+Colombia,504,2005,m,0.978
+Costa Rica,505,1963,f,0.580
+Costa Rica,505,1973,f,0.704
+Costa Rica,505,1984,f,0.828
+Costa Rica,505,2000,f,0.998
+Costa Rica,505,1963,m,0.590
+Costa Rica,505,1973,m,0.738
+Costa Rica,505,1984,m,0.886
+Costa Rica,505,2000,m,0.998
+Cuba,506,1970,f,0.880
+Cuba,506,1981,f,0.945
+Cuba,506,1990,f,1.010
+Cuba,506,2000,f,0.850
+Cuba,506,2010,f,1.360
+Cuba,506,1970,m,0.870
+Cuba,506,1981,m,0.905
+Cuba,506,1990,m,0.940
+Cuba,506,2000,m,0.990
+Cuba,506,2010,m,1.580
+Rep Dominicana,507,1960,f,0.900
+Rep Dominicana,507,1970,f,0.835
+Rep Dominicana,507,1981,f,0.770
+Rep Dominicana,507,1993,f,0.710
+Rep Dominicana,507,1960,m,0.640
+Rep Dominicana,507,1970,m,0.655
+Rep Dominicana,507,1981,m,0.670
+Rep Dominicana,507,1993,m,0.680
+Mexico,508,1940,f,1.770
+Mexico,508,1950,f,1.510
+Mexico,508,1960,f,1.250
+Mexico,508,1970,f,1.370
+Mexico,508,1980,f,1.110
+Mexico,508,1990,f,1.120
+Mexico,508,2000,f,1.000
+Mexico,508,2010,f,1.020
+Mexico,508,1940,m,1.250
+Mexico,508,1950,m,1.135
+Mexico,508,1960,m,1.020
+Mexico,508,1970,m,1.120
+Mexico,508,1980,m,0.980
+Mexico,508,1990,m,1.070
+Mexico,508,2000,m,0.990
+Mexico,508,2010,m,0.900
+Panama,510,1950,f,0.999
+Panama,510,1960,f,1.036
+Panama,510,1970,f,1.073
+Panama,510,1980,f,0.995
+Panama,510,1990,f,0.892
+Panama,510,2000,f,0.874
+Panama,510,1950,m,1.232
+Panama,510,1960,m,1.130
+Panama,510,1970,m,1.028
+Panama,510,1980,m,0.912
+Panama,510,1990,m,0.920
+Panama,510,2000,m,0.869
+Peru,511,1972,f,0.810
+Peru,511,1981,f,0.720
+Peru,511,1993,f,0.630
+Peru,511,2007,f,0.747
+Peru,511,1972,m,0.750
+Peru,511,1981,m,0.675
+Peru,511,1993,m,0.600
+Peru,511,2007,m,0.757
+Porto Rico,512,1960,f,0.950
+Porto Rico,512,1970,f,0.860
+Porto Rico,512,1980,f,0.770
+Porto Rico,512,1990,f,0.820
+Porto Rico,512,2000,f,0.740
+Porto Rico,512,1960,m,0.840
+Porto Rico,512,1970,m,0.790
+Porto Rico,512,1980,m,0.740
+Porto Rico,512,1990,m,0.800
+Porto Rico,512,2000,m,0.810
+Uruguai,509,1963,f,0.960
+Uruguai,509,1975,f,0.945
+Uruguai,509,1985,f,0.930
+Uruguai,509,1996,f,0.960
+Uruguai,509,2006,f,1.490
+Uruguai,509,1963,m,0.960
+Uruguai,509,1975,m,0.990
+Uruguai,509,1985,m,1.020
+Uruguai,509,1996,m,1.010
+Uruguai,509,2006,m,1.640
+Guatemala,513,1964,f,1.150
+Guatemala,513,1973,f,1.175
+Guatemala,513,1981,f,1.200
+Guatemala,513,1994,f,1.150
+Guatemala,513,1964,m,0.960
+Guatemala,513,1973,m,0.980
+Guatemala,513,1981,m,1.000
+Guatemala,513,1994,m,1.020
