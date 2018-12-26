@@ -3,11 +3,13 @@
 
 This repository contains code that broadly relate to looking at evolution of life expectancy and variability of age at death in Latin America. Paper is accepted for publication - Revista Latinoamericana de Población. The paper is co-author by: Marcos Gonzaga, Bernardo L. Queiroz and Everton Lima
 
-    1) Stata code to estimate latin america mortality pattern
-    2) Stata code to estimate mortality age profile for all countries in the study
-    3) R codes to produce all graphs presented in the paper.
-    4) Original database to performe all calculations. 
+    1) Stata code to estimate latin america mortality pattern (standardmodel.do)
+    2) Stata code to estimate mortality age profile for all countries in the study (standardmodel.do)
+    3) R codes to produce all graphs presented in the paper. (figure.r and iqr_c50.r)
+    4) Original database to performe all calculations (dados_mortalidade_to_stata.csv)
     5) Under-registration of death counts - please look at https://cran.r-project.org/web/packages/DDM/index.html
+    6) Estimates of completeness of death counts coverage (death_counts_under-registration.csv)
+    
     
 # Information about paper
 
