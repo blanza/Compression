@@ -1,3 +1,4 @@
+#Original Model in Stata
 ********************************************************************************************
 * Stata syntax for estimating LAC mortality standard and fittting mortality schedule for   * 
 * each country, year and sex                                                               * 
