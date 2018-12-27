@@ -1,7 +1,7 @@
 # Compression
 # Compression of Mortality: the evolution of the variability in age at death in Latin America
 
-This repository contains code that broadly relate to looking at evolution of life expectancy and variability of age at death in Latin America. Paper is accepted for publication - Revista Latinoamericana de Población. The paper is co-author by: Marcos Gonzaga, Bernardo L. Queiroz and Everton Lima
+This repository contains code that broadly relate to looking at evolution of life expectancy and variability of age at death in Latin America. Please, note that there are codes in Stata and R. Relational model for mortality was developed in Stata, later analysis was done in R. We tried to describe in detail what we did in each file. Paper is accepted for publication - Revista Latinoamericana de Población. The paper is co-authored by: Marcos Gonzaga, Bernardo L. Queiroz and Everton Lima
 
     1) Stata code to estimate latin america mortality pattern (standardmodel.do)
     2) Stata code to estimate mortality age profile for all countries in the study (standardmodel.do)
